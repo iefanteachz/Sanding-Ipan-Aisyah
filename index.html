@@ -299,7 +299,7 @@
     top: -13%;
     left: 6%;
     width: 32%;
-    z-index: 4;
+    z-index: 8;
     filter: drop-shadow(0 6px 8px rgba(90,20,40,0.25));
     transform-origin: 60% 90%;
     animation: bowFlutter 3.2s ease-in-out infinite;
@@ -1232,6 +1232,7 @@
     background: linear-gradient(200deg, var(--card-soft), var(--card));
     border-radius: 24px;
     padding: clamp(30px, 8vw, 40px) clamp(18px, 5vw, 28px) clamp(34px, 8vw, 44px);
+    margin-bottom: clamp(36px, 9vw, 56px);
     box-shadow: 0 20px 40px -22px rgba(20,40,70,0.35);
   }
   .closing-card .doa {
@@ -1470,21 +1471,6 @@
           <span class="seal-letter letter-i">I</span><span class="amp">&amp;</span><span class="seal-letter letter-a">A</span>
         </div>
       </div>
-
-      <!-- baby's breath sprig above seal -->
-      <svg class="sprig" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 90 L26 30 M26 30 L14 10 M26 30 L34 6 M26 30 L22 45" stroke="#8e1f2b" stroke-width="1.4" fill="none"/>
-        <circle cx="14" cy="10" r="3" fill="url(#budGrad)"/>
-        <circle cx="34" cy="6" r="3" fill="url(#budGrad)"/>
-        <circle cx="22" cy="20" r="2.5" fill="url(#budGrad)"/>
-        <circle cx="30" cy="14" r="2.5" fill="url(#budGrad)"/>
-        <circle cx="18" cy="34" r="2.5" fill="url(#budGrad)"/>
-      </svg>
-
-      <!-- corner flower bouquet, matches reference image composition -->
-      <svg class="corner-flowers" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-        <use href="#bouquet-cluster" x="0" y="0" width="220" height="200"/>
-      </svg>
     </div>
     <div class="tap-hint">tap to open</div>
   </div>
@@ -1494,15 +1480,6 @@
     <div class="invite-inner">
 
       <div class="monogram-card reveal-on-scroll">
-        <!-- decorative flowers around monogram, same bouquet style -->
-        <svg class="monogram-flowers-left" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200"/>
-        </svg>
-
-        <svg class="monogram-flowers-right" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(-1,1) translate(-220,0)"/>
-        </svg>
-
         <!-- small sprig tucked beside the crest -->
         <svg class="monogram-sprig" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
           <path d="M30 90 L26 30 M26 30 L14 10 M26 30 L34 6 M26 30 L22 45" stroke="var(--leaf)" stroke-width="1.4" fill="none"/>
@@ -1526,15 +1503,19 @@
         </div>
       </div>
 
+      <!-- ================= FAMILY / CLOSING VERSE (now the 2nd card) ================= -->
+      <div class="closing-card reveal-on-scroll">
+        <div class="gold-divider" style="margin-bottom:18px;"><span></span></div>
+        <div class="doa">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri, supaya kamu merasa tenteram kepadanya."</div>
+        <div class="families">
+          Anak kepada<br>
+          <b>[Nama Bapa] &amp; [Nama Ibu Aisyah]</b>
+        </div>
+        <div class="site-footer">Dengan penuh kasih, Irfan &amp; Aisyah &nbsp;·&nbsp; 2026</div>
+      </div>
+
       <!-- INFO CARD -->
       <div class="info-card reveal-on-scroll">
-        <svg class="corner-decor decor-tl" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(0.85) rotate(6 110 100)"/>
-        </svg>
-        <svg class="corner-decor decor-br" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(-0.85,-0.85) translate(-260,-235) rotate(6 110 100)"/>
-        </svg>
-
         <div class="heading">Pada Hari</div>
         <div class="icon">📅</div>
         <div class="value">Sabtu, 10 Oktober 2026</div>
@@ -1554,13 +1535,6 @@
 
       <!-- ITINERARY CARD -->
       <div class="info-card reveal-on-scroll" style="padding-bottom:52px;">
-        <svg class="corner-decor decor-tl" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(0.85) rotate(6 110 100)"/>
-        </svg>
-        <svg class="corner-decor decor-br" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(-0.85,-0.85) translate(-260,-235) rotate(6 110 100)"/>
-        </svg>
-
         <div class="heading" style="margin-bottom:26px;">Atur Cara Majlis</div>
 
         <div class="timeline">
@@ -1622,11 +1596,7 @@
       </div>
 
       <!-- ================= RSVP ================= -->
-      <div class="rsvp-card reveal-on-scroll">
-        <svg class="corner-decor decor-tl" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
-          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(0.85) rotate(6 110 100)"/>
-        </svg>
-        <div class="section-title" style="margin-bottom:2px;">RSVP</div>
+      <div class="rsvp-card reveal-on-scroll">        <div class="section-title" style="margin-bottom:2px;">RSVP</div>
         <div class="section-sub">Sila sahkan kehadiran anda sebelum 30 September 2026</div>
 
         <form id="rsvp-form">
@@ -1709,19 +1679,6 @@
           <div class="cd-unit"><span id="cd-mins">00</span><small>MINIT</small></div>
           <div class="cd-unit"><span id="cd-secs">00</span><small>SAAT</small></div>
         </div>
-      </div>
-
-      <!-- ================= CLOSING ================= -->
-      <div class="closing-card reveal-on-scroll">
-        <div class="gold-divider" style="margin-bottom:18px;"><span></span></div>
-        <div class="doa">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri, supaya kamu merasa tenteram kepadanya."</div>
-        <div class="families">
-          Anak kepada<br>
-          <b>[Nama Bapa] &amp; [Nama Ibu Irfan]</b><br>
-          dan<br>
-          <b>[Nama Bapa] &amp; [Nama Ibu Aisyah]</b>
-        </div>
-        <div class="site-footer">Dengan penuh kasih, Irfan &amp; Aisyah &nbsp;·&nbsp; 2026</div>
       </div>
 
     </div>
