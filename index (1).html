@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Majlis Perkahwinan (Bersanding) — Irfan & Aisyah</title>
+<meta name="description" content="Jemputan ke Majlis Perkahwinan Irfan & Aisyah, 10 Oktober 2026, MIM Event Hall, Meru, Klang.">
+<meta property="og:title" content="Majlis Perkahwinan Irfan & Aisyah">
+<meta property="og:description" content="Sabtu, 10 Oktober 2026 — MIM Event Hall, Meru, Klang, Selangor">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,600&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky: #f3e9da;
+    --sky-deep: #ecdcc4;
+    --card: #f7ecdd;
+    --card-soft: #fbf3e6;
+    --ink: #5c1420;
+    --ink-soft: #7a2230;
+    --blush: #f7e3d6;
+    --ribbon: #8e1f2b;
+    --ribbon-dark: #6b1420;
+    --seal: #7a1a2b;
+    --seal-dark: #591320;
+    --leaf: #7a1a2b;
+    --flower-blue: #a9515c;
+    --flower-blue-dark: #7a1a2b;
+    --gold: #b98f4f;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--sky);
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    color: var(--ink);
+    overflow: hidden;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .stage {
+    position: relative;
+    height: 100dvh;
+    width: 100%;
+    overflow: hidden;
+    background: var(--sky) url('wedding-bg-2.jpg') center center / contain no-repeat;
+  }
+
+  /* ============ SCRIPT FONT (approximation via styling) ============ */
+  .script {
+    font-family: 'Alex Brush', 'Brush Script MT', cursive;
+    font-style: italic;
+  }
+
+  /* =====================================================================
+     SCREEN 1 — ENVELOPE
+     ===================================================================== */
+  #envelope-screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    z-index: 2;
+  }
+
+  #envelope-screen.hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+  }
+
+  .envelope-wrap {
+    position: relative;
+    width: min(300px, 72vw);
+    aspect-ratio: 560 / 340;
+    transition: transform 0.5s ease;
+    perspective: 900px;
+  }
+
+  .tap-hint {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+    opacity: 0.85;
+    animation: pulseHint 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulseHint {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .envelope-wrap:hover { transform: translateY(-4px); }
+
+  .envelope-body {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(155deg, #e8d3ac 0%, #ddc190 55%, #d3b483 100%);
+    border-radius: 4px;
+    box-shadow: 0 25px 50px -20px rgba(30, 50, 80, 0.45), 0 8px 18px rgba(30,50,80,0.15);
+  }
+
+  .envelope-body::before,
+  .envelope-body::after,
+  .flap-left,
+  .flap-right {
+    content: '';
+    position: absolute;
+    background: linear-gradient(155deg, #e2c99a, #cfb17e);
+  }
+
+  /* triangular flaps drawn with clip-path */
+  .flap-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 62%;
+    background: linear-gradient(160deg, #ecd9b3, #ddc190);
+    clip-path: polygon(0 0, 100% 0, 50% 68%);
+    filter: drop-shadow(0 2px 3px rgba(120,90,50,0.25));
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.65s cubic-bezier(0.4, 0.1, 0.3, 1);
+    z-index: 5;
+  }
+
+  .envelope-wrap.opening .flap-top {
+    transform: rotateX(178deg);
+  }
+
+  .flap-left {
+    top: 0; left: 0; bottom: 0; width: 52%;
+    clip-path: polygon(0 0, 0 100%, 62% 50%);
+    background: linear-gradient(120deg, #e6d1a4, #d6ba86);
+    opacity: 0.9;
+  }
+  .flap-right {
+    top: 0; right: 0; bottom: 0; width: 52%;
+    clip-path: polygon(100% 0, 100% 100%, 38% 50%);
+    background: linear-gradient(240deg, #e6d1a4, #d6ba86);
+    opacity: 0.9;
+  }
+
+  .envelope-texture {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(140,100,50,0.10), transparent 40%),
+      radial-gradient(circle at 80% 75%, rgba(140,100,50,0.12), transparent 45%),
+      radial-gradient(circle at 60% 30%, rgba(255,255,255,0.15), transparent 35%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  /* wax seal */
+  .seal {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 17%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #d68a94, var(--seal) 55%, var(--seal-dark) 100%);
+    box-shadow:
+      0 6px 10px rgba(90, 50, 70, 0.35),
+      inset 0 2px 4px rgba(255,255,255,0.4),
+      inset 0 -4px 8px rgba(90,40,60,0.35);
+    z-index: 6;
+    overflow: hidden;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .seal::after {
+    content: '';
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+  .seal::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.65), transparent);
+    animation: sealShimmer 3.6s ease-in-out infinite;
+    z-index: 3;
+  }
+
+  @keyframes sealShimmer {
+    0%   { transform: translateX(0) rotate(20deg); }
+    45%  { transform: translateX(340%) rotate(20deg); }
+    100% { transform: translateX(340%) rotate(20deg); }
+  }
+
+  .envelope-wrap.opening .seal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+
+  .seal-initials {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: clamp(0.85rem, 3vw, 1.05rem);
+    letter-spacing: 0.5px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(90,40,60,0.55);
+  }
+
+  .seal-initials .seal-letter,
+  .seal-initials .amp {
+    display: inline-block;
+    opacity: 0;
+  }
+
+  .seal-initials .letter-i {
+    transform: translateX(10px) scale(0.3);
+  }
+  .seal-initials .letter-a {
+    transform: translateX(-10px) scale(0.3);
+  }
+  .seal-initials .amp {
+    font-family: 'Alex Brush', 'Brush Script MT', cursive;
+    font-style: italic;
+    font-weight: 400;
+    margin: 0 2px;
+    transform: scale(0.2) rotate(-15deg);
+  }
+
+  /* letters sit collapsed at the seal's center until the envelope is
+     tapped, then spring outward into their resting positions */
+  .envelope-wrap.opening .seal-initials .letter-i {
+    animation: sealLetterFromRight 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.05s;
+  }
+  .envelope-wrap.opening .seal-initials .amp {
+    animation: sealAmpPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.22s;
+  }
+  .envelope-wrap.opening .seal-initials .letter-a {
+    animation: sealLetterFromLeft 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.35s;
+  }
+
+  @keyframes sealLetterFromRight {
+    0%   { opacity: 0; transform: translateX(10px) scale(0.3); }
+    55%  { opacity: 1; }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
+  }
+
+  @keyframes sealLetterFromLeft {
+    0%   { opacity: 0; transform: translateX(-10px) scale(0.3); }
+    55%  { opacity: 1; }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
+  }
+
+  @keyframes sealAmpPop {
+    0%   { opacity: 0; transform: scale(0.2) rotate(-15deg); }
+    55%  { opacity: 1; }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+
+  /* baby's breath sprig above seal */
+  .sprig {
+    position: absolute;
+    top: 18%;
+    left: 53%;
+    width: 16%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  /* ribbon bow top-left */
+  .bow {
+    position: absolute;
+    top: -13%;
+    left: 6%;
+    width: 32%;
+    z-index: 4;
+    filter: drop-shadow(0 6px 8px rgba(90,20,40,0.25));
+    transform-origin: 60% 90%;
+    animation: bowFlutter 3.2s ease-in-out infinite;
+  }
+
+  @keyframes bowFlutter {
+    0%, 100% { transform: rotate(-2.5deg); }
+    50% { transform: rotate(2.5deg); }
+  }
+
+  .envelope-wrap.opening .bow {
+    animation-play-state: paused;
+  }
+
+  .corner-flowers {
+    position: absolute;
+    bottom: -16%;
+    right: -8%;
+    width: 46%;
+    z-index: 4;
+  }
+
+  /* =====================================================================
+     SCREEN 2 — INVITATION
+     ===================================================================== */
+  #invite-screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: transparent;
+    padding: clamp(40px, 10vw, 64px) clamp(16px, 5vw, 20px) 70px;
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  #invite-screen.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .invite-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .eyebrow {
+    text-align: center;
+    color: var(--ink);
+    font-size: clamp(1.25rem, 5.5vw, 1.5rem);
+    line-height: 1.3;
+    margin-bottom: clamp(24px, 6vw, 34px);
+    font-family: 'Alex Brush', 'Brush Script MT', cursive;
+    font-style: italic;
+  }
+
+  .monogram-card {
+    position: relative;
+    background: linear-gradient(180deg, var(--blush), #f6f2e6);
+    margin: 0 auto clamp(40px, 9vw, 56px);
+    padding: clamp(30px, 8vw, 42px) clamp(18px, 5vw, 28px) clamp(26px, 6vw, 34px);
+    text-align: center;
+    border-radius: 18px;
+    box-shadow:
+      0 28px 50px -20px rgba(120, 60, 75, 0.38),
+      0 10px 22px -12px rgba(20, 40, 70, 0.28);
+  }
+
+  /* subtle paper-like texture, sits behind the text content */
+  .monogram-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(160, 110, 100, 0.09), transparent 40%),
+      radial-gradient(circle at 85% 85%, rgba(160, 110, 100, 0.09), transparent 45%),
+      radial-gradient(circle at 55% 45%, rgba(255, 255, 255, 0.3), transparent 40%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .monogram-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* I & A monogram, side by side */
+  .monogram-crest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 3vw, 18px);
+  }
+
+  .monogram-crest .mono-letter {
+    font-size: clamp(2.6rem, 11vw, 3.6rem);
+    line-height: 1;
+    color: var(--ink);
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+  }
+
+  .monogram-crest .mono-amp {
+    font-size: clamp(1.6rem, 6.5vw, 2.1rem);
+    line-height: 1;
+    color: var(--gold);
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-style: italic;
+  }
+
+  /* small sprig tucked beside the crest */
+  .monogram-sprig {
+    position: absolute;
+    top: 6%;
+    right: 12%;
+    width: 15%;
+    z-index: 3;
+  }
+
+  .monogram-card .names {
+    margin-top: 18px;
+    font-size: clamp(1.15rem, 4.5vw, 1.3rem);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+  }
+
+  /* gold divider between names and date */
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58%;
+    margin: 14px auto 0;
+  }
+
+  .gold-divider::before,
+  .gold-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .gold-divider::after {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .gold-divider span {
+    width: 5px;
+    height: 5px;
+    margin: 0 9px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .monogram-card .date {
+    margin-top: 12px;
+    font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .monogram-flowers-left {
+    position: absolute;
+    top: 46%;
+    left: -20%;
+    width: 42%;
+    z-index: 3;
+  }
+  .monogram-flowers-right {
+    position: absolute;
+    top: -6%;
+    right: -18%;
+    width: 34%;
+    z-index: 3;
+  }
+
+  .play-btn {
+    display: block;
+    margin: clamp(20px, 6vw, 30px) auto clamp(34px, 8vw, 46px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #c9959e, #6b1420 70%);
+    border: none;
+    box-shadow: 0 8px 16px -6px rgba(30,50,90,0.5);
+    cursor: pointer;
+    position: relative;
+  }
+  .play-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 55%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 8px 0 8px 13px;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  .play-btn.paused::after {
+    content: '';
+    border: none;
+    left: 50%;
+    width: 4px;
+    height: 16px;
+    background: #fff;
+    box-shadow: 6px 0 0 #fff;
+  }
+
+  .info-card {
+    position: relative;
+    background: linear-gradient(200deg, var(--card-soft), var(--card));
+    border-radius: 24px;
+    padding: clamp(30px, 8vw, 40px) clamp(18px, 5vw, 28px) clamp(34px, 8vw, 44px);
+    text-align: center;
+    margin-bottom: clamp(36px, 9vw, 56px);
+    box-shadow: 0 20px 40px -22px rgba(20,40,70,0.35);
+  }
+
+  .info-card .heading {
+    font-size: clamp(1.3rem, 5.2vw, 1.55rem);
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.3px;
+  }
+
+  .info-card .icon {
+    font-size: 1.3rem;
+    margin: 6px 0 14px;
+  }
+
+  .info-card .value {
+    font-size: clamp(1.05rem, 4.3vw, 1.2rem);
+    line-height: 1.65;
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  .map-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--card-soft);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 13px 22px;
+    min-height: 44px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 26px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+
+  .corner-decor {
+    position: absolute;
+    width: 34%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .decor-tl { top: -12%; left: -12%; }
+  .decor-br { bottom: -12%; right: -12%; }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    margin-top: 26px;
+    padding: 0;
+  }
+
+  .t-row {
+    display: grid;
+    grid-template-columns: 1fr 68px 1fr;
+    align-items: center;
+    min-height: 60px;
+  }
+
+  .t-side {
+    font-size: clamp(0.88rem, 3.6vw, 1rem);
+    line-height: 1.35;
+    font-weight: 500;
+    text-align: center;
+    padding: 0 2px;
+  }
+
+  .t-side .t-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 4px;
+    transform: translateY(-8px);
+  }
+
+  .t-time {
+    text-align: center;
+    font-size: clamp(1.05rem, 4.4vw, 1.2rem);
+    font-weight: 700;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .t-connector {
+    grid-column: 2;
+    width: 1px;
+    height: 28px;
+    background: var(--ink-soft);
+    opacity: 0.4;
+    margin: 0 auto;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 340px) {
+    .t-row { grid-template-columns: 1fr 56px 1fr; }
+    .corner-decor { width: 30%; }
+  }
+
+  /* ============ FLOATING MUSIC BUTTON ============ */
+  .music-fab {
+    position: fixed;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: var(--ink);
+    color: var(--card-soft);
+    box-shadow: 0 8px 18px -6px rgba(20,40,70,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+  }
+
+  .music-fab.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .music-fab-icon {
+    animation: spinNote 3.5s linear infinite;
+    display: inline-block;
+  }
+
+  .music-fab.paused .music-fab-icon {
+    animation-play-state: paused;
+  }
+
+  @keyframes spinNote {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* ============ LOADING SCREEN ============ */
+  #loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: var(--sky);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  #loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .loader-mono {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-size: clamp(2.2rem, 10vw, 3rem);
+    color: var(--ink);
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+    animation: loaderPulse 1.6s ease-in-out infinite;
+  }
+
+  .loader-amp {
+    font-family: 'Alex Brush', 'Brush Script MT', cursive;
+    font-style: italic;
+    margin: 0 6px;
+    color: var(--ribbon-dark);
+  }
+
+  @keyframes loaderPulse {
+    0%, 100% { opacity: 0.55; transform: scale(0.97); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  .loader-bar {
+    width: 120px;
+    height: 3px;
+    background: rgba(47, 69, 105, 0.18);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .loader-fill {
+    width: 40%;
+    height: 100%;
+    background: var(--ink);
+    border-radius: 3px;
+    animation: loaderSweep 1.1s ease-in-out infinite;
+  }
+
+  @keyframes loaderSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
+  }
+
+  /* ============ PETALS ============ */
+  .petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 6;
+    overflow: hidden;
+  }
+
+  .petal {
+    position: absolute;
+    top: -20px;
+    border-radius: 50% 0 50% 50%;
+    opacity: 0.85;
+    animation-name: petalFall, petalSway;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: 1, infinite;
+  }
+
+  @keyframes petalFall {
+    from { transform: translateY(-5vh) rotate(0deg); }
+    to { transform: translateY(105vh) rotate(340deg); }
+  }
+
+  @keyframes petalSway {
+    0%, 100% { margin-left: 0; }
+    50% { margin-left: 28px; }
+  }
+
+  /* ============ COUNTDOWN ============ */
+  .countdown {
+    text-align: center;
+    margin: 0 auto clamp(30px, 8vw, 44px);
+  }
+
+  .countdown-label {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: clamp(8px, 3vw, 14px);
+  }
+
+  .cd-unit {
+    background: linear-gradient(200deg, var(--card-soft), var(--card));
+    border-radius: 12px;
+    padding: 12px 4px;
+    width: 64px;
+    box-shadow: 0 10px 20px -14px rgba(20,40,70,0.4);
+  }
+
+  .cd-unit span {
+    display: block;
+    font-size: clamp(1.3rem, 5.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--ink);
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+  }
+
+  .cd-unit small {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--ink-soft);
+    margin-top: 3px;
+  }
+
+  /* ============ WAZE BUTTON ============ */
+  .location-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+
+  .location-buttons .map-btn { margin-bottom: 0; }
+
+  .waze-btn {
+    background: var(--flower-blue-dark);
+  }
+
+  /* ============ SCROLL REVEAL ============ */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ TIMELINE DOT PULSE ============ */
+  .t-connector {
+    position: relative;
+  }
+
+  .t-connector::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ink);
+    transform: translate(-50%, -50%);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.55; }
+    50% { transform: translate(-50%, -50%) scale(1.6); opacity: 1; }
+  }
+
+  /* ============ BUTTON RIPPLE ============ */
+  .map-btn, .music-fab {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out;
+    pointer-events: none;
+  }
+
+  @keyframes rippleAnim {
+    to { transform: scale(2.8); opacity: 0; }
+  }
+
+  /* ============ ACCESSIBILITY: REDUCED MOTION ============
+     Respects the OS-level "reduce motion" setting many older users
+     have enabled, and also lightens CPU/battery load on older phones. */
+  @media (prefers-reduced-motion: reduce) {
+    .stage { animation: none; background-color: #eef2ee; }
+    .bow { animation: none; }
+    .seal::before { animation: none; display: none; }
+    .loader-mono { animation: none; }
+    .loader-fill { animation: none; }
+    .music-fab-icon { animation: none; }
+    .t-connector::after { animation: none; opacity: 0.7; }
+    .petal { display: none; }
+    .tap-hint { animation: none; }
+    .seal-initials .seal-letter,
+    .seal-initials .amp {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+    .reveal-on-scroll {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* =====================================================================
+     SECTION HEADINGS (shared by gallery / rsvp / gift / wishes)
+     ===================================================================== */
+  .section-title {
+    text-align: center;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 6vw, 1.75rem);
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin-bottom: clamp(22px, 6vw, 30px);
+    line-height: 1.5;
+  }
+
+  /* =====================================================================
+     GALLERY
+     ===================================================================== */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: clamp(36px, 9vw, 56px);
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+    background: linear-gradient(155deg, var(--card-soft), var(--card));
+  }
+  .gallery-item:nth-child(3n+1) { grid-row: span 2; aspect-ratio: 1/2.05; }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .gallery-item:active img { transform: scale(1.06); }
+  .gallery-item .gi-tag {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 5px 6px;
+    font-size: 0.62rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(0deg, rgba(30,40,60,0.55), transparent);
+  }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 28, 45, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 24px;
+  }
+  .lightbox.open { opacity: 1; pointer-events: auto; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 82vh;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+  .lightbox-prev { left: 12px; }
+  .lightbox-next { right: 12px; }
+
+  /* =====================================================================
+     RSVP
+     ===================================================================== */
+  .rsvp-card {
+    position: relative;
+    background: linear-gradient(200deg, var(--card-soft), var(--card));
+    border-radius: 24px;
+    padding: clamp(30px, 8vw, 40px) clamp(18px, 5vw, 26px) clamp(30px, 7vw, 38px);
+    margin-bottom: clamp(36px, 9vw, 56px);
+    box-shadow: 0 20px 40px -22px rgba(20,40,70,0.35);
+  }
+  .form-field { margin-bottom: 18px; }
+  .form-field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.4px;
+    margin-bottom: 7px;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: rgba(255,255,255,0.75);
+    color: var(--ink);
+    box-sizing: border-box;
+  }
+  .form-input:focus, .form-textarea:focus { outline: 2px solid var(--gold); }
+  .form-textarea { resize: vertical; min-height: 70px; }
+  .radio-group {
+    display: flex;
+    gap: 10px;
+  }
+  .radio-pill {
+    flex: 1;
+    text-align: center;
+    padding: 11px 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.55);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .radio-pill input { display: none; }
+  .radio-pill.active {
+    background: var(--ink);
+    color: var(--card-soft);
+    border-color: var(--ink);
+  }
+  .submit-btn {
+    width: 100%;
+    background: var(--ink);
+    color: var(--card-soft);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+  }
+  .rsvp-success {
+    text-align: center;
+    padding: 10px 0 2px;
+  }
+  .rsvp-success .check {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: var(--leaf);
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.6rem;
+    animation: popCheck 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes popCheck {
+    from { transform: scale(0); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+
+  /* =====================================================================
+     GIFT / DUITNOW
+     ===================================================================== */
+  .gift-card {
+    position: relative;
+    background: linear-gradient(180deg, var(--blush), #f6f2e6);
+    border-radius: 18px;
+    padding: clamp(30px, 8vw, 40px) clamp(18px, 5vw, 26px);
+    text-align: center;
+    margin-bottom: clamp(36px, 9vw, 56px);
+    box-shadow: 0 20px 40px -22px rgba(120,60,75,0.35);
+  }
+  .envelope-icon {
+    font-size: 2.1rem;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .qr-box {
+    width: 168px;
+    height: 168px;
+    margin: 12px auto 18px;
+    border-radius: 12px;
+    background: #fff repeating-linear-gradient(45deg, #eef3ec 0 8px, #fff 8px 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 10px 24px -12px rgba(120,60,75,0.4);
+  }
+  .bank-row {
+    background: rgba(255,255,255,0.55);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 auto 10px;
+    max-width: 300px;
+    text-align: left;
+  }
+  .bank-row .bank-info b { display: block; font-size: 0.9rem; color: var(--ink); }
+  .bank-row .bank-info span { font-size: 0.8rem; color: var(--ink-soft); letter-spacing: 0.5px; }
+  .copy-btn {
+    border: none;
+    background: var(--ink);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .copy-btn.copied { background: var(--leaf); }
+
+  /* =====================================================================
+     GUEST WISHES
+     ===================================================================== */
+  .wishes-card {
+    position: relative;
+    background: linear-gradient(200deg, var(--card-soft), var(--card));
+    border-radius: 24px;
+    padding: clamp(28px, 7vw, 36px) clamp(18px, 5vw, 26px);
+    margin-bottom: clamp(36px, 9vw, 56px);
+    box-shadow: 0 20px 40px -22px rgba(20,40,70,0.35);
+  }
+  .wish-form { display: flex; gap: 8px; margin-bottom: 20px; }
+  .wish-form input { flex: 1; }
+  .wish-add-btn {
+    border: none;
+    background: var(--ink);
+    color: #fff;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .wishes-list { display: flex; flex-direction: column; gap: 10px; max-height: 320px; overflow-y: auto; }
+  .wish-item {
+    background: rgba(255,255,255,0.55);
+    border-radius: 10px;
+    padding: 10px 14px;
+    animation: wishIn 0.4s ease;
+  }
+  @keyframes wishIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .wish-item b { font-size: 0.85rem; color: var(--ink); display: block; margin-bottom: 2px; }
+  .wish-item p { font-size: 0.85rem; color: var(--ink-soft); margin: 0; line-height: 1.4; }
+  .wishes-empty { text-align: center; font-size: 0.82rem; color: var(--ink-soft); padding: 10px 0; }
+
+  /* =====================================================================
+     SHARE ROW
+     ===================================================================== */
+  .share-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: clamp(36px, 9vw, 56px);
+    flex-wrap: wrap;
+  }
+  .share-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--card-soft);
+    color: var(--ink);
+    border: 1.5px solid var(--ink-soft);
+    padding: 11px 16px;
+    border-radius: 24px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* =====================================================================
+     CLOSING
+     ===================================================================== */
+  .closing-card {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(200deg, var(--card-soft), var(--card));
+    border-radius: 24px;
+    padding: clamp(30px, 8vw, 40px) clamp(18px, 5vw, 28px) clamp(34px, 8vw, 44px);
+    box-shadow: 0 20px 40px -22px rgba(20,40,70,0.35);
+  }
+  .closing-card .doa {
+    font-family: 'Alex Brush', 'Brush Script MT', cursive;
+    font-style: italic;
+    font-size: clamp(1.15rem, 5vw, 1.4rem);
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .closing-card .families {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    margin-bottom: 22px;
+  }
+  .closing-card .site-footer {
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+  }
+
+  /* =====================================================================
+     CONFETTI (countdown-end celebration)
+     ===================================================================== */
+  #confetti-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 40;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wish-item { animation: none; }
+    .rsvp-success .check { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Shared gradients & botanical symbols reused by every decorative flower below.
+     Palette + shapes redrawn to match the reference bouquet: deep indigo-blue
+     morning-glory blooms, a violet/plum thistle-aster centerpiece, blush
+     cherry-blossom clusters, and layered two-tone green leaves. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="petGradBlue" cx="42%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#b3435a"/>
+      <stop offset="45%" stop-color="#8e1f2b"/>
+      <stop offset="100%" stop-color="#4a0e18"/>
+    </radialGradient>
+    <radialGradient id="petGradLavender" cx="42%" cy="28%" r="85%">
+      <stop offset="0%" stop-color="#d68a94"/>
+      <stop offset="45%" stop-color="#8e1f2b"/>
+      <stop offset="100%" stop-color="#6b1420"/>
+    </radialGradient>
+    <radialGradient id="petGradBlush" cx="50%" cy="78%" r="85%">
+      <stop offset="0%" stop-color="#f6f2e6"/>
+      <stop offset="55%" stop-color="#dccdac"/>
+      <stop offset="100%" stop-color="#c9a25b"/>
+    </radialGradient>
+    <radialGradient id="centerGold" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#fffaf0"/>
+      <stop offset="100%" stop-color="#b98f4f"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d68a94"/>
+      <stop offset="100%" stop-color="#6b1420"/>
+    </linearGradient>
+    <linearGradient id="leafGradDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b3435a"/>
+      <stop offset="100%" stop-color="#4a0e18"/>
+    </linearGradient>
+    <radialGradient id="budGrad" cx="35%" cy="28%" r="75%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d9c9a3"/>
+    </radialGradient>
+    <radialGradient id="thistleCenter" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#c9a25b"/>
+      <stop offset="60%" stop-color="#b3873f"/>
+      <stop offset="100%" stop-color="#8e1f2b"/>
+    </radialGradient>
+
+    <!-- five-petal morning-glory / hydrangea style bloom, deep indigo blue -->
+    <symbol id="blossom-blue" viewBox="0 0 40 40">
+      <g>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradBlue)" transform="rotate(0 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradBlue)" transform="rotate(72 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradBlue)" transform="rotate(144 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradBlue)" transform="rotate(216 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradBlue)" transform="rotate(288 20 20)"/>
+        <circle cx="20" cy="20" r="4" fill="url(#centerGold)"/>
+        <circle cx="20" cy="20" r="4" fill="none" stroke="#4a0e18" stroke-width="0.6" opacity="0.4"/>
+      </g>
+    </symbol>
+
+    <!-- violet/plum five-petal bloom -->
+    <symbol id="blossom-lavender" viewBox="0 0 40 40">
+      <g>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradLavender)" transform="rotate(0 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradLavender)" transform="rotate(72 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradLavender)" transform="rotate(144 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradLavender)" transform="rotate(216 20 20)"/>
+        <ellipse cx="20" cy="9" rx="7" ry="10.5" fill="url(#petGradLavender)" transform="rotate(288 20 20)"/>
+        <circle cx="20" cy="20" r="4" fill="url(#centerGold)"/>
+        <circle cx="20" cy="20" r="4" fill="none" stroke="#6b1420" stroke-width="0.6" opacity="0.4"/>
+      </g>
+    </symbol>
+
+    <!-- blush cherry-blossom style bloom, five notched petals -->
+    <symbol id="blossom-blush" viewBox="0 0 40 40">
+      <g>
+        <path d="M20 20 C17 13 16 6 20 3 C24 6 23 13 20 20 Z" fill="url(#petGradBlush)" transform="rotate(0 20 20)"/>
+        <path d="M20 20 C17 13 16 6 20 3 C24 6 23 13 20 20 Z" fill="url(#petGradBlush)" transform="rotate(72 20 20)"/>
+        <path d="M20 20 C17 13 16 6 20 3 C24 6 23 13 20 20 Z" fill="url(#petGradBlush)" transform="rotate(144 20 20)"/>
+        <path d="M20 20 C17 13 16 6 20 3 C24 6 23 13 20 20 Z" fill="url(#petGradBlush)" transform="rotate(216 20 20)"/>
+        <path d="M20 20 C17 13 16 6 20 3 C24 6 23 13 20 20 Z" fill="url(#petGradBlush)" transform="rotate(288 20 20)"/>
+        <circle cx="20" cy="20" r="3.4" fill="url(#centerGold)"/>
+      </g>
+    </symbol>
+
+    <!-- thistle / aster centerpiece bloom, layered fringed petals like the reference -->
+    <symbol id="rose-bloom" viewBox="0 0 40 40">
+      <g stroke="#6b1420" stroke-width="0.3">
+        <path d="M20 20 L20 2" transform="rotate(0 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(20 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(40 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(60 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(80 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(100 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(120 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(140 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(160 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(180 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(200 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(220 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(240 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(260 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(280 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(300 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(320 20 20)"/>
+        <path d="M20 20 L20 2" transform="rotate(340 20 20)"/>
+      </g>
+      <circle cx="20" cy="20" r="15" fill="url(#petGradLavender)" opacity="0.28"/>
+      <circle cx="20" cy="20" r="11" fill="url(#petGradBlush)" opacity="0.9"/>
+      <circle cx="20" cy="20" r="6.5" fill="url(#thistleCenter)"/>
+      <circle cx="20" cy="20" r="6.5" fill="none" stroke="#6b1420" stroke-width="0.5" opacity="0.5"/>
+    </symbol>
+
+    <symbol id="leaf-shape" viewBox="0 0 20 40">
+      <path d="M10 40 C1 29 1 11 10 0 C19 11 19 29 10 40 Z" fill="url(#leafGrad)"/>
+      <path d="M10 36 L10 5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    </symbol>
+
+    <symbol id="leaf-shape-dark" viewBox="0 0 20 40">
+      <path d="M10 40 C1 29 1 11 10 0 C19 11 19 29 10 40 Z" fill="url(#leafGradDark)"/>
+      <path d="M10 36 L10 5" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    </symbol>
+
+    <!-- reusable full bouquet cluster matching the reference composition:
+         big blue blooms lower-left, thistle centerpiece mid, blush sprays
+         lower-right, leaves threading throughout -->
+    <symbol id="bouquet-cluster" viewBox="0 0 220 200">
+      <g stroke="url(#leafGrad)" stroke-width="2.6" fill="none" stroke-linecap="round">
+        <path d="M110 200 C100 150 108 100 128 60"/>
+        <path d="M108 145 C82 132 60 118 45 100"/>
+        <path d="M118 108 C138 96 152 82 165 62"/>
+        <path d="M112 165 C130 168 150 172 168 185"/>
+      </g>
+      <use href="#leaf-shape" x="50" y="98" width="22" height="36" transform="rotate(-38 61 116)"/>
+      <use href="#leaf-shape-dark" x="132" y="56" width="20" height="32" transform="rotate(32 142 72)"/>
+      <use href="#leaf-shape" x="96" y="150" width="18" height="30" transform="rotate(-6 105 165)"/>
+      <use href="#leaf-shape-dark" x="145" y="150" width="18" height="30" transform="rotate(20 154 165)"/>
+
+      <!-- blue bloom cluster, lower left -->
+      <use href="#blossom-blue" x="26" y="118" width="26" height="26"/>
+      <use href="#blossom-blue" x="42" y="104" width="24" height="24"/>
+      <use href="#blossom-blue" x="56" y="120" width="26" height="26"/>
+      <use href="#blossom-blue" x="38" y="136" width="22" height="22"/>
+      <use href="#blossom-blue" x="52" y="142" width="20" height="20"/>
+      <use href="#blossom-blue" x="20" y="140" width="20" height="20"/>
+      <use href="#blossom-lavender" x="68" y="134" width="20" height="20"/>
+
+      <!-- small violet blooms upper area -->
+      <use href="#blossom-lavender" x="128" y="34" width="24" height="24"/>
+      <use href="#blossom-lavender" x="144" y="26" width="20" height="20"/>
+      <use href="#blossom-lavender" x="122" y="20" width="18" height="18"/>
+
+      <!-- thistle centerpiece -->
+      <use href="#rose-bloom" x="118" y="86" width="52" height="52"/>
+
+      <!-- blush spray, right/lower -->
+      <use href="#blossom-blush" x="150" y="140" width="20" height="20"/>
+      <use href="#blossom-blush" x="166" y="128" width="18" height="18"/>
+      <use href="#blossom-blush" x="178" y="148" width="19" height="19"/>
+      <use href="#blossom-blush" x="160" y="160" width="17" height="17"/>
+      <use href="#blossom-blush" x="145" y="168" width="16" height="16"/>
+      <use href="#blossom-blush" x="180" y="168" width="15" height="15"/>
+      <use href="#blossom-blush" x="192" y="152" width="14" height="14"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ================= LOADING SCREEN ================= -->
+<div id="loading-screen">
+  <div class="loader-mono">I<span class="loader-amp">&amp;</span>A</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- falling petals, populated by JS -->
+<div class="petals" id="petals"></div>
+
+<div class="stage">
+
+  <!-- ================= SCREEN 1: ENVELOPE ================= -->
+  <div id="envelope-screen" onclick="openInvite()">
+    <div class="envelope-wrap">
+      <div class="envelope-body"></div>
+      <div class="flap-left"></div>
+      <div class="flap-right"></div>
+      <div class="flap-top"></div>
+      <div class="envelope-texture"></div>
+
+      <!-- ribbon bow -->
+      <svg class="bow" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 80 C60 20, 10 20, 15 55 C18 85, 60 85, 100 80Z" fill="var(--ribbon)" stroke="var(--ribbon-dark)" stroke-width="2"/>
+        <path d="M100 80 C140 20, 190 20, 185 55 C182 85, 140 85, 100 80Z" fill="var(--ribbon)" stroke="var(--ribbon-dark)" stroke-width="2"/>
+        <path d="M100 80 C90 105, 70 130, 78 138 C85 145, 100 118, 100 80Z" fill="var(--ribbon)" stroke="var(--ribbon-dark)" stroke-width="2"/>
+        <circle cx="100" cy="80" r="11" fill="var(--ribbon-dark)"/>
+      </svg>
+
+      <!-- plain wax seal, letters animate outward when the envelope opens -->
+      <div class="seal">
+        <div class="seal-initials">
+          <span class="seal-letter letter-i">I</span><span class="amp">&amp;</span><span class="seal-letter letter-a">A</span>
+        </div>
+      </div>
+
+      <!-- baby's breath sprig above seal -->
+      <svg class="sprig" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 90 L26 30 M26 30 L14 10 M26 30 L34 6 M26 30 L22 45" stroke="#8e1f2b" stroke-width="1.4" fill="none"/>
+        <circle cx="14" cy="10" r="3" fill="url(#budGrad)"/>
+        <circle cx="34" cy="6" r="3" fill="url(#budGrad)"/>
+        <circle cx="22" cy="20" r="2.5" fill="url(#budGrad)"/>
+        <circle cx="30" cy="14" r="2.5" fill="url(#budGrad)"/>
+        <circle cx="18" cy="34" r="2.5" fill="url(#budGrad)"/>
+      </svg>
+
+      <!-- corner flower bouquet, matches reference image composition -->
+      <svg class="corner-flowers" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+        <use href="#bouquet-cluster" x="0" y="0" width="220" height="200"/>
+      </svg>
+    </div>
+    <div class="tap-hint">tap to open</div>
+  </div>
+
+  <!-- ================= SCREEN 2: INVITATION ================= -->
+  <div id="invite-screen">
+    <div class="invite-inner">
+
+      <div class="monogram-card reveal-on-scroll">
+        <!-- decorative flowers around monogram, same bouquet style -->
+        <svg class="monogram-flowers-left" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200"/>
+        </svg>
+
+        <svg class="monogram-flowers-right" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(-1,1) translate(-220,0)"/>
+        </svg>
+
+        <!-- small sprig tucked beside the crest -->
+        <svg class="monogram-sprig" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 90 L26 30 M26 30 L14 10 M26 30 L34 6 M26 30 L22 45" stroke="var(--leaf)" stroke-width="1.4" fill="none"/>
+          <circle cx="14" cy="10" r="3" fill="url(#budGrad)"/>
+          <circle cx="34" cy="6" r="3" fill="url(#budGrad)"/>
+          <circle cx="22" cy="20" r="2.5" fill="url(#budGrad)"/>
+          <circle cx="30" cy="14" r="2.5" fill="url(#budGrad)"/>
+          <circle cx="18" cy="34" r="2.5" fill="url(#budGrad)"/>
+        </svg>
+
+        <div class="monogram-content">
+          <div class="eyebrow">Undangan ke Majlis<br>Bersanding</div>
+          <div class="monogram-crest">
+            <span class="mono-letter">I</span>
+            <span class="mono-amp">&amp;</span>
+            <span class="mono-letter">A</span>
+          </div>
+          <div class="names">Irfan &amp; Aisyah</div>
+          <div class="gold-divider"><span></span></div>
+          <div class="date">Sabtu<br>10 Oktober 2026</div>
+        </div>
+      </div>
+
+      <!-- INFO CARD -->
+      <div class="info-card reveal-on-scroll">
+        <svg class="corner-decor decor-tl" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(0.85) rotate(6 110 100)"/>
+        </svg>
+        <svg class="corner-decor decor-br" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(-0.85,-0.85) translate(-260,-235) rotate(6 110 100)"/>
+        </svg>
+
+        <div class="heading">Pada Hari</div>
+        <div class="icon">📅</div>
+        <div class="value">Sabtu, 10 Oktober 2026</div>
+
+        <div class="heading">Bertempat Di</div>
+        <div class="icon">📍</div>
+        <div class="value">MIM Event Hall,<br>2174, Jalan Khamis, Meru,<br>42200 Klang, Selangor</div>
+        <div class="location-buttons">
+          <button class="map-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=MIM+Event+Hall+2174+Jalan+Khamis+Meru+42200+Klang+Selangor', '_blank')">GOOGLE MAPS</button>
+          <button class="map-btn waze-btn" onclick="window.open('https://waze.com/ul?q=MIM%20Event%20Hall%20Jalan%20Khamis%20Meru%20Klang&navigate=yes', '_blank')">WAZE</button>
+        </div>
+
+        <div class="heading">Masa</div>
+        <div class="icon">🕐</div>
+        <div class="value" style="margin-bottom:0;">10.00am–4.00pm</div>
+      </div>
+
+      <!-- ITINERARY CARD -->
+      <div class="info-card reveal-on-scroll" style="padding-bottom:52px;">
+        <svg class="corner-decor decor-tl" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(0.85) rotate(6 110 100)"/>
+        </svg>
+        <svg class="corner-decor decor-br" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(-0.85,-0.85) translate(-260,-235) rotate(6 110 100)"/>
+        </svg>
+
+        <div class="heading" style="margin-bottom:26px;">Atur Cara Majlis</div>
+
+        <div class="timeline">
+          <div class="t-row">
+            <div class="t-side"></div>
+            <div class="t-time">10.00am</div>
+            <div class="t-side"></div>
+          </div>
+          <div class="t-row">
+            <div class="t-side"><span class="t-icon">🤝</span>ketibaan jemputan</div>
+            <div class="t-connector"></div>
+            <div class="t-side"></div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-side"></div>
+            <div class="t-time">11.00am</div>
+            <div class="t-side"></div>
+          </div>
+          <div class="t-row">
+            <div class="t-side"></div>
+            <div class="t-connector"></div>
+            <div class="t-side"><span class="t-icon">👰</span>istiadat bersanding</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-side"></div>
+            <div class="t-time">12.30pm</div>
+            <div class="t-side"></div>
+          </div>
+          <div class="t-row">
+            <div class="t-side"><span class="t-icon">📷</span>sesi bergambar</div>
+            <div class="t-connector"></div>
+            <div class="t-side"></div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-side"></div>
+            <div class="t-time">1.00pm</div>
+            <div class="t-side"></div>
+          </div>
+          <div class="t-row">
+            <div class="t-side"></div>
+            <div class="t-connector"></div>
+            <div class="t-side"><span class="t-icon">🍽️</span>jamuan makan</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-side"></div>
+            <div class="t-time">4.00pm</div>
+            <div class="t-side"></div>
+          </div>
+          <div class="t-row">
+            <div class="t-side"><span class="t-icon">🌸</span>selesai</div>
+            <div class="t-connector"></div>
+            <div class="t-side"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= RSVP ================= -->
+      <div class="rsvp-card reveal-on-scroll">
+        <svg class="corner-decor decor-tl" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <use href="#bouquet-cluster" x="0" y="0" width="220" height="200" transform="scale(0.85) rotate(6 110 100)"/>
+        </svg>
+        <div class="section-title" style="margin-bottom:2px;">RSVP</div>
+        <div class="section-sub">Sila sahkan kehadiran anda sebelum 30 September 2026</div>
+
+        <form id="rsvp-form">
+          <div class="form-field">
+            <label for="rsvp-name">Nama Penuh</label>
+            <input class="form-input" type="text" id="rsvp-name" required placeholder="Nama anda">
+          </div>
+          <div class="form-field">
+            <label>Kehadiran</label>
+            <div class="radio-group">
+              <label class="radio-pill active" data-value="Hadir">
+                <input type="radio" name="attend" value="Hadir" checked>Hadir
+              </label>
+              <label class="radio-pill" data-value="Tidak Hadir">
+                <input type="radio" name="attend" value="Tidak Hadir">Tidak Hadir
+              </label>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="rsvp-pax">Bilangan Tetamu (termasuk anda)</label>
+            <input class="form-input" type="number" id="rsvp-pax" min="1" max="10" value="1">
+          </div>
+          <div class="form-field">
+            <label for="rsvp-wish">Ucapan &amp; Doa (pilihan)</label>
+            <textarea class="form-textarea" id="rsvp-wish" placeholder="Tinggalkan ucapan untuk pengantin..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">HANTAR RSVP</button>
+        </form>
+
+        <div class="rsvp-success" id="rsvp-success" style="display:none;">
+          <div class="check">✓</div>
+          <div style="font-weight:700; color:var(--ink);">Terima kasih!</div>
+          <div style="font-size:0.85rem; color:var(--ink-soft); margin-top:4px;">RSVP anda telah dihantar melalui WhatsApp.</div>
+        </div>
+      </div>
+
+      <!-- ================= GIFT / DUITNOW ================= -->
+      <div class="gift-card reveal-on-scroll">
+        <span class="envelope-icon">💌</span>
+        <div class="section-title" style="margin-bottom:2px;">Doa Restu &amp; Hadiah</div>
+        <div class="section-sub">Kehadiran anda adalah hadiah paling bermakna.<br>Namun jika ingin memberi sedikit salam, kami dahulukan ucapan terima kasih.</div>
+
+        <!-- TODO: ganti dengan QR DuitNow sebenar (imej) -->
+        <div class="qr-box">Letakkan imej<br>QR DuitNow<br>di sini</div>
+
+        <div class="bank-row">
+          <div class="bank-info">
+            <b>Maybank</b>
+            <span id="bank-acc">1234 5678 9012 &nbsp;•&nbsp; Irfan bin ___</span>
+          </div>
+          <button class="copy-btn" id="copy-acc-btn" onclick="copyAccount()">SALIN</button>
+        </div>
+      </div>
+
+      <!-- ================= GUEST WISHES ================= -->
+      <div class="wishes-card reveal-on-scroll">
+        <div class="section-title" style="margin-bottom:2px;">Ucapan Tetamu</div>
+        <div class="section-sub">Tinggalkan doa & ucapan untuk kami</div>
+        <form class="wish-form" id="wish-form">
+          <input class="form-input" type="text" id="wish-name" placeholder="Nama anda" required>
+          <button type="submit" class="wish-add-btn">Hantar</button>
+        </form>
+        <input class="form-input" type="text" id="wish-text" placeholder="Tulis ucapan ringkas di sini..." style="margin-bottom:12px;" form="wish-form" required>
+        <div class="wishes-list" id="wishes-list">
+          <div class="wishes-empty" id="wishes-empty">Jadilah yang pertama memberi ucapan 🌸</div>
+        </div>
+      </div>
+
+      <!-- ================= SHARE ================= -->
+      <div class="share-row reveal-on-scroll">
+        <button class="share-btn" onclick="saveToCalendar()">🗓 Simpan Kalendar</button>
+      </div>
+
+      <!-- ================= COUNTDOWN (moved to end) ================= -->
+      <div class="countdown reveal-on-scroll">
+        <div class="countdown-label">menghitung hari...</div>
+        <div class="countdown-grid">
+          <div class="cd-unit"><span id="cd-days">00</span><small>HARI</small></div>
+          <div class="cd-unit"><span id="cd-hours">00</span><small>JAM</small></div>
+          <div class="cd-unit"><span id="cd-mins">00</span><small>MINIT</small></div>
+          <div class="cd-unit"><span id="cd-secs">00</span><small>SAAT</small></div>
+        </div>
+      </div>
+
+      <!-- ================= CLOSING ================= -->
+      <div class="closing-card reveal-on-scroll">
+        <div class="gold-divider" style="margin-bottom:18px;"><span></span></div>
+        <div class="doa">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri, supaya kamu merasa tenteram kepadanya."</div>
+        <div class="families">
+          Anak kepada<br>
+          <b>[Nama Bapa] &amp; [Nama Ibu Irfan]</b><br>
+          dan<br>
+          <b>[Nama Bapa] &amp; [Nama Ibu Aisyah]</b>
+        </div>
+        <div class="site-footer">Dengan penuh kasih, Irfan &amp; Aisyah &nbsp;·&nbsp; 2026</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Tutup">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="Sebelum">‹</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)" aria-label="Seterus">›</button>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- floating music control, shows once envelope is opened -->
+  <button id="music-toggle" class="music-fab" onclick="toggleMusic(this)" aria-label="Play or pause music">
+    <span class="music-fab-icon">♪</span>
+  </button>
+
+</div>
+
+<!-- Put your music file in the same folder and set the src below -->
+<!-- preload="none": the 3MB music file won't start downloading until the
+     envelope is tapped, so the page itself loads fast on any connection -->
+<audio id="bgm" src="music.mp3" loop preload="none"></audio>
+
+<script>
+  let confettiFired = false;
+  let confettiPieces = [];
+
+  const envelope = document.getElementById('envelope-screen');
+  const invite = document.getElementById('invite-screen');
+  const musicFab = document.getElementById('music-toggle');
+  const loadingScreen = document.getElementById('loading-screen');
+
+  // ============ LOADING SCREEN ============
+  window.addEventListener('load', () => {
+    setTimeout(() => loadingScreen.classList.add('hidden'), 800);
+  });
+
+  // Mobile browsers block autoplay until the user taps something on the page.
+  // That's exactly what clicking the envelope provides, so music reliably
+  // starts at that point even though this early attempt on load will fail.
+  window.addEventListener('DOMContentLoaded', () => {
+    bgm.play().catch(() => { /* blocked until user taps the envelope, that's expected */ });
+  });
+
+  function openInvite() {
+    // this click is the "user gesture" browsers require before allowing audio
+    bgm.play().catch(() => { /* music.mp3 missing, or still blocked */ });
+
+    const envelopeWrap = envelope.querySelector('.envelope-wrap');
+    envelopeWrap.classList.add('opening');
+
+    // let the flap visually swing open before the whole screen fades away
+    setTimeout(() => {
+      envelope.classList.add('hidden');
+      setTimeout(() => invite.classList.add('visible'), 200);
+      musicFab.classList.add('visible');
+    }, 500);
+  }
+
+  function toggleMusic(btn) {
+    if (bgm.paused) {
+      bgm.play().catch(() => {});
+      btn.classList.remove('paused');
+    } else {
+      bgm.pause();
+      btn.classList.add('paused');
+    }
+  }
+
+  // ============ FALLING PETALS ============
+  const petalColors = ['#f3f6f1', '#dfd3ab', '#8e1f2b', '#c9a25b'];
+  const petalsContainer = document.getElementById('petals');
+
+  function spawnPetal() {
+    if (petalsContainer.childElementCount >= 12) return; // cap DOM load on slower phones
+    const petal = document.createElement('div');
+    petal.className = 'petal';
+    const size = 8 + Math.random() * 8;
+    petal.style.width = size + 'px';
+    petal.style.height = size + 'px';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
+    const fallDuration = 9 + Math.random() * 7;
+    const swayDuration = 2.5 + Math.random() * 2;
+    petal.style.animationDuration = fallDuration + 's, ' + swayDuration + 's';
+    petalsContainer.appendChild(petal);
+    setTimeout(() => petal.remove(), fallDuration * 1000);
+  }
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    setInterval(spawnPetal, 750);
+    for (let i = 0; i < 4; i++) setTimeout(spawnPetal, i * 350);
+  }
+
+  // ============ COUNTDOWN TIMER ============
+  const targetDate = new Date('2026-10-10T10:00:00+08:00').getTime();
+  const cdDays = document.getElementById('cd-days');
+  const cdHours = document.getElementById('cd-hours');
+  const cdMins = document.getElementById('cd-mins');
+  const cdSecs = document.getElementById('cd-secs');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function updateCountdown() {
+    const now = Date.now();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      cdDays.textContent = '00';
+      cdHours.textContent = '00';
+      cdMins.textContent = '00';
+      cdSecs.textContent = '00';
+      clearInterval(countdownTimer);
+      if (!confettiFired) { confettiFired = true; fireConfetti(); }
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    cdDays.textContent = pad(days);
+    cdHours.textContent = pad(hours);
+    cdMins.textContent = pad(mins);
+    cdSecs.textContent = pad(secs);
+  }
+
+  updateCountdown();
+  const countdownTimer = setInterval(updateCountdown, 1000);
+
+  // ============ SCROLL REVEAL ============
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+  // ============ BUTTON RIPPLE ============
+  function attachRipple(el) {
+    el.addEventListener('click', (e) => {
+      const rect = el.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      el.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  }
+
+  document.querySelectorAll('.map-btn, .music-fab').forEach(attachRipple);
+
+  // ============ EVENT CONSTANTS ============
+  // TODO: set your actual WhatsApp number in international format, no + or spaces
+  const COUPLE_WHATSAPP = '60123456789';
+  const EVENT_TITLE = 'Majlis Perkahwinan Irfan & Aisyah';
+  const EVENT_LOCATION = 'MIM Event Hall, 2174, Jalan Khamis, Meru, 42200 Klang, Selangor';
+  const EVENT_START = '20261010T020000Z'; // 10.00am MYT = 02:00 UTC
+  const EVENT_END = '20261010T080000Z';   // 4.00pm MYT = 08:00 UTC
+
+  // ============ GALLERY LIGHTBOX ============
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let lightboxIndex = 0;
+
+  function openLightbox(i) {
+    lightboxIndex = i;
+    lightboxImg.src = galleryItems[i].dataset.full;
+    lightbox.classList.add('open');
+  }
+  function closeLightbox() { lightbox.classList.remove('open'); }
+  function navLightbox(dir) {
+    lightboxIndex = (lightboxIndex + dir + galleryItems.length) % galleryItems.length;
+    lightboxImg.src = galleryItems[lightboxIndex].dataset.full;
+  }
+  galleryItems.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  // ============ RSVP FORM ============
+  document.querySelectorAll('.radio-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.radio-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      pill.querySelector('input').checked = true;
+    });
+  });
+
+  const rsvpForm = document.getElementById('rsvp-form');
+  rsvpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('rsvp-name').value.trim();
+    const attend = rsvpForm.querySelector('input[name="attend"]:checked').value;
+    const pax = document.getElementById('rsvp-pax').value;
+    const wish = document.getElementById('rsvp-wish').value.trim();
+
+    const msg = `Assalamualaikum, RSVP Majlis Perkahwinan Irfan & Aisyah%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(attend)}%0ABilangan tetamu: ${pax}%0AUcapan: ${encodeURIComponent(wish || '-')}`;
+    window.open(`https://wa.me/${COUPLE_WHATSAPP}?text=${msg}`, '_blank');
+
+    rsvpForm.style.display = 'none';
+    document.getElementById('rsvp-success').style.display = 'block';
+  });
+
+  // ============ GIFT: COPY ACCOUNT NUMBER ============
+  function copyAccount() {
+    const text = document.getElementById('bank-acc').textContent.replace(/\s*•\s*/g, ' - ');
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-acc-btn');
+      btn.textContent = 'DISALIN';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'SALIN'; btn.classList.remove('copied'); }, 1800);
+    }).catch(() => {});
+  }
+
+  // ============ GUEST WISHES (stored locally in this browser only) ============
+  const WISHES_KEY = 'irfan-aisyah-wishes';
+  const wishesList = document.getElementById('wishes-list');
+  const wishesEmpty = document.getElementById('wishes-empty');
+
+  function loadWishes() {
+    let wishes = [];
+    try { wishes = JSON.parse(localStorage.getItem(WISHES_KEY)) || []; } catch (e) { wishes = []; }
+    if (wishes.length === 0) { wishesEmpty.style.display = 'block'; return; }
+    wishesEmpty.style.display = 'none';
+    wishes.slice().reverse().forEach(w => appendWishCard(w.name, w.text, false));
+  }
+
+  function appendWishCard(name, text, animate) {
+    const card = document.createElement('div');
+    card.className = 'wish-item';
+    if (!animate) card.style.animation = 'none';
+    const b = document.createElement('b');
+    b.textContent = name;
+    const p = document.createElement('p');
+    p.textContent = text;
+    card.appendChild(b);
+    card.appendChild(p);
+    wishesList.prepend(card);
+  }
+
+  document.getElementById('wish-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('wish-name').value.trim();
+    const text = document.getElementById('wish-text').value.trim();
+    if (!name || !text) return;
+
+    let wishes = [];
+    try { wishes = JSON.parse(localStorage.getItem(WISHES_KEY)) || []; } catch (err) { wishes = []; }
+    wishes.push({ name, text });
+    localStorage.setItem(WISHES_KEY, JSON.stringify(wishes));
+
+    wishesEmpty.style.display = 'none';
+    appendWishCard(name, text, true);
+    document.getElementById('wish-name').value = '';
+    document.getElementById('wish-text').value = '';
+  });
+
+  loadWishes();
+
+  // ============ SHARE INVITE ============
+  function shareInvite() {
+    const shareData = {
+      title: EVENT_TITLE,
+      text: 'Jemputan ke Majlis Perkahwinan Irfan & Aisyah, 10 Oktober 2026',
+      url: window.location.href
+    };
+    if (navigator.share) {
+      navigator.share(shareData).catch(() => {});
+    } else {
+      window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`, '_blank');
+    }
+  }
+
+  // ============ SAVE TO CALENDAR (.ics download) ============
+  function saveToCalendar() {
+    const ics = [
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'BEGIN:VEVENT',
+      `SUMMARY:${EVENT_TITLE}`,
+      `DTSTART:${EVENT_START}`,
+      `DTEND:${EVENT_END}`,
+      `LOCATION:${EVENT_LOCATION}`,
+      'DESCRIPTION:Jemputan Majlis Perkahwinan Irfan & Aisyah',
+      'END:VEVENT', 'END:VCALENDAR'
+    ].join('\r\n');
+    const blob = new Blob([ics], { type: 'text/calendar' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Majlis-Perkahwinan-Irfan-Aisyah.ics';
+    link.click();
+  }
+
+  document.querySelectorAll('.share-btn, .submit-btn, .wish-add-btn, .copy-btn').forEach(attachRipple);
+
+  // ============ CONFETTI ON COUNTDOWN END ============
+  const confettiCanvas = document.getElementById('confetti-canvas');
+  const ctx = confettiCanvas.getContext('2d');
+
+  function resizeConfettiCanvas() {
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeConfettiCanvas);
+  resizeConfettiCanvas();
+
+  function fireConfetti() {
+    if (prefersReducedMotion) return;
+    const colors = ['#f3f6f1', '#dfd3ab', '#8e1f2b', '#c9a25b', '#b98f4f'];
+    confettiPieces = Array.from({ length: 90 }, () => ({
+      x: Math.random() * confettiCanvas.width,
+      y: -20 - Math.random() * confettiCanvas.height * 0.5,
+      r: 4 + Math.random() * 4,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      vy: 2 + Math.random() * 3,
+      vx: -1.5 + Math.random() * 3,
+      rot: Math.random() * 360,
+      vr: -6 + Math.random() * 12
+    }));
+    requestAnimationFrame(animateConfetti);
+    setTimeout(() => { confettiPieces = []; }, 6000);
+  }
+
+  function animateConfetti() {
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    confettiPieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.c;
+      ctx.fillRect(-p.r / 2, -p.r / 2, p.r, p.r * 0.6);
+      ctx.restore();
+    });
+    if (confettiPieces.length) requestAnimationFrame(animateConfetti);
+  }
+</script>
+
+</body>
+</html>
