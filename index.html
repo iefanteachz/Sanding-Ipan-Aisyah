@@ -355,8 +355,9 @@
     box-sizing: border-box;
   }
 
-  /* Every card shares the same width so they read as one consistent set —
-     height is left to fit its own content naturally, no inner scrollbars */
+  /* Every card shares the same width and a matching minimum height —
+     sized to match the "Pada Hari" (3rd) card — content stays centered,
+     no inner scrollbars are introduced */
   .monogram-card,
   .closing-card,
   .info-card,
@@ -364,7 +365,11 @@
   .gift-card,
   .wishes-card {
     width: 100%;
+    min-height: 560px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   #invite-screen.visible {
