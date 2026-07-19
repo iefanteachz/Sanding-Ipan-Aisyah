@@ -611,11 +611,13 @@
   /* Timeline — compact vertical list with connecting line */
   .timeline {
     position: relative;
-    margin-top: 22px;
+    margin: 22px auto 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: 18px;
+    width: fit-content;
+    max-width: 100%;
   }
 
   .t-item {
@@ -1281,6 +1283,37 @@
     line-height: 1.5;
     margin-bottom: 18px;
   }
+  .closing-card .arabic-line {
+    direction: rtl;
+    unicode-bidi: isolate;
+    font-family: 'Traditional Arabic', 'Scheherazade New', 'Noto Naskh Arabic', serif;
+    color: var(--ink);
+    line-height: 1.9;
+  }
+  .closing-card .arabic-greeting {
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+    margin-bottom: 4px;
+  }
+  .closing-card .arabic-bismillah {
+    font-size: clamp(1.05rem, 4.4vw, 1.25rem);
+    margin-bottom: 16px;
+  }
+  .closing-card .couple-names {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 4.3vw, 1.22rem);
+    color: var(--ink);
+    line-height: 1.7;
+    margin-top: 6px;
+  }
+  .closing-card .couple-names .amp-divider {
+    display: block;
+    font-family: 'Alex Brush', 'Brush Script MT', cursive;
+    font-style: italic;
+    font-size: clamp(1.3rem, 5.2vw, 1.6rem);
+    color: var(--gold);
+    margin: 2px 0;
+  }
   .closing-card .families {
     font-size: 0.85rem;
     color: var(--ink-soft);
@@ -1547,10 +1580,17 @@
       <!-- ================= FAMILY / CLOSING VERSE (now the 2nd card) ================= -->
       <div class="closing-card reveal-on-scroll">
         <div class="gold-divider" style="margin-bottom:18px;"><span></span></div>
-        <div class="doa">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri, supaya kamu merasa tenteram kepadanya."</div>
+        <div class="arabic-line arabic-greeting">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُه</div>
+        <div class="arabic-line arabic-bismillah">بِسْــــــــــــــمِ اللهِ الرَّحْمَنِ الرَّحِيْـــــم</div>
         <div class="families">
-          Anak kepada<br>
-          <b>Abu Bakar Bin Jamaludin &amp; Siti Haslinda Binti Rasid @ Abdul Rahman</b>
+          Dengan penuh rasa syukur ke hadrat Ilahi, kami<br>
+          <b>Abu Bakar Bin Jamaludin<br>&amp;<br>Siti Haslinda Binti Rasid @ Abdul Rahman</b><br><br>
+          dengan segala hormat dan sukacitanya menjemput Dato'/ Datin/ Tuan/Puan/ Encik/ Cik serta seisi keluarga ke Majlis Perkahwinan puteri kami bersama pasangannya
+        </div>
+        <div class="couple-names">
+          Siti Aisyah Binti Abu Bakar
+          <span class="amp-divider">&amp;</span>
+          Muhammad Irfan Bin Noor Azam
         </div>
         <div class="site-footer">Dengan penuh kasih, Irfan &amp; Aisyah &nbsp;·&nbsp; 2026</div>
       </div>
@@ -1661,7 +1701,7 @@
         <div class="rsvp-success" id="rsvp-success" style="display:none;">
           <div class="check">✓</div>
           <div style="font-weight:700; color:var(--ink);">Terima kasih!</div>
-          <div style="font-size:0.85rem; color:var(--ink-soft); margin-top:4px;">RSVP anda telah dihantar melalui WhatsApp.</div>
+          <div style="font-size:0.85rem; color:var(--ink-soft); margin-top:4px;">RSVP anda telah direkodkan.</div>
         </div>
       </div>
       </div>
@@ -1885,8 +1925,6 @@
   document.querySelectorAll('.map-btn, .music-fab').forEach(attachRipple);
 
   // ============ EVENT CONSTANTS ============
-  // TODO: set your actual WhatsApp number in international format, no + or spaces
-  const COUPLE_WHATSAPP = '60123456789';
   // TODO: paste your Google Apps Script Web App URL here (ends in /exec)
   const RSVP_SHEET_URL = 'https://script.google.com/macros/s/AKfycby-NlGz2s7J76GVu4r6gQ9vGGGi31ETDSwjAL_yBSOMT3LAnfvtvZ7Uos9uSN5B7mWF/exec';
   const EVENT_TITLE = 'Majlis Perkahwinan Irfan & Aisyah';
@@ -1939,9 +1977,6 @@
         body: JSON.stringify({ name, attend, pax, wish: wish || '-' })
       }).catch(() => {});
     }
-
-    const msg = `Assalamualaikum, RSVP Majlis Perkahwinan Irfan & Aisyah%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(attend)}%0ABilangan tetamu: ${pax}%0AUcapan: ${encodeURIComponent(wish || '-')}`;
-    window.open(`https://wa.me/${COUPLE_WHATSAPP}?text=${msg}`, '_blank');
 
     rsvpForm.style.display = 'none';
     document.getElementById('rsvp-success').style.display = 'block';
