@@ -1499,7 +1499,16 @@
       background: rgba(255, 255, 255, 0.55);
       border-radius: 10px;
       padding: 10px 14px;
-      animation: wishIn 0.4s ease;
+      animation: wishFloat 5.5s ease-in-out var(--wish-delay, 0s) infinite;
+      will-change: transform;
+    }
+
+    .wish-item-new > * {
+      animation: wishIn 0.4s ease both;
+    }
+
+    .wish-item-new p {
+      animation-delay: 0.08s;
     }
 
     @keyframes wishIn {
@@ -1511,6 +1520,21 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes wishFloat {
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      35% {
+        transform: translateY(-3px) rotate(-0.25deg);
+      }
+
+      70% {
+        transform: translateY(2px) rotate(0.2deg);
       }
     }
 
@@ -1646,6 +1670,10 @@
 
     @media (prefers-reduced-motion: reduce) {
       .wish-item {
+        animation: none;
+      }
+
+      .wish-item-new > * {
         animation: none;
       }
 
@@ -2079,7 +2107,7 @@
           <!-- ================= SHARE ================= -->
           <div class="share-row reveal-on-scroll">
             <button class="share-btn" onclick="saveToCalendar()">🗓 Simpan Kalendar</button>
-            <button class="share-btn" onclick="contactUs()" type="button">☎ Hubungi Utk Bantua</button>
+            <button class="share-btn" onclick="contactUs()" type="button">☎ Hubungi(Bapa Pengantin)</button>
           </div>
 
           <!-- ================= COUNTDOWN (moved to end) ================= -->
@@ -2374,7 +2402,8 @@
     function appendWishCard(name, text, animate) {
       const card = document.createElement('div');
       card.className = 'wish-item';
-      if (!animate) card.style.animation = 'none';
+      card.style.setProperty('--wish-delay', `${-(wishesList.children.length % 7) * 0.8}s`);
+      if (animate) card.classList.add('wish-item-new');
       const b = document.createElement('b');
       b.textContent = name;
       const p = document.createElement('p');
