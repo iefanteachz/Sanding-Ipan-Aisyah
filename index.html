@@ -1488,19 +1488,27 @@
     }
 
     .wishes-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-height: 260px;
-      overflow-y: auto;
+      position: relative;
+      min-height: 110px;
+      overflow: hidden;
     }
 
     .wish-item {
+      display: none;
       background: rgba(255, 255, 255, 0.55);
       border-radius: 10px;
       padding: 10px 14px;
       animation: wishFloat 5.5s ease-in-out var(--wish-delay, 0s) infinite;
       will-change: transform;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .wish-item.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .wish-item-new > * {
@@ -2367,11 +2375,37 @@
       return Array.isArray(wishes) ? wishes : [];
     }
 
+    let wishScrollTimer = null;
+
+    function stopWishAutoScroll() {
+      if (wishScrollTimer) {
+        clearInterval(wishScrollTimer);
+        wishScrollTimer = null;
+      }
+    }
+
+    function startWishAutoScroll() {
+      stopWishAutoScroll();
+
+      const cards = Array.from(wishesList.querySelectorAll('.wish-item'));
+      if (cards.length === 0) return;
+
+      cards.forEach((card, idx) => card.classList.toggle('active', idx === 0));
+      if (cards.length < 2) return;
+
+      let index = 0;
+      wishScrollTimer = setInterval(() => {
+        index = (index + 1) % cards.length;
+        cards.forEach((card, cardIndex) => card.classList.toggle('active', cardIndex === index));
+      }, 2600);
+    }
+
     function displayWishes(wishes) {
       wishesList.querySelectorAll('.wish-item').forEach(card => card.remove());
-      if (wishes.length === 0) { wishesEmpty.style.display = 'block'; return; }
+      if (wishes.length === 0) { wishesEmpty.style.display = 'block'; stopWishAutoScroll(); return; }
       wishesEmpty.style.display = 'none';
       wishes.slice().reverse().forEach(w => appendWishCard(w.name, w.text, false));
+      startWishAutoScroll();
     }
 
     function normalizeSheetWishes(payload) {
@@ -2426,6 +2460,7 @@
 
       wishesEmpty.style.display = 'none';
       appendWishCard(name, text, true);
+      startWishAutoScroll();
       document.getElementById('wish-name').value = '';
       document.getElementById('wish-text').value = '';
     });
